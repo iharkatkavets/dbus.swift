@@ -5,17 +5,13 @@ import PackageDescription
 
 let package = Package(
     name: "DBusSwift",
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.2.0"),
+    products: [
+    .library(name: "DBusSwift", targets: ["DBusSwift"])
     ],
     targets: [
-        .executableTarget(
+        .target(
             name: "DBusSwift",
-            dependencies: [
-                .product(name: "ArgumentParser", package: "swift-argument-parser"),
-                "Core",
-                "Clibdbus"
-            ],
+            dependencies: ["Core", "Clibdbus"],
             path: "Sources"
         ),
         .target(
@@ -32,6 +28,11 @@ let package = Package(
             providers: [
                 .apt(["libdbus-dev"])
             ]
+        ),
+        .testTarget(
+            name: "DBusSwiftTests",
+            dependencies: ["DBusSwift"],
+            path: "Tests"
         )
     ]
 )

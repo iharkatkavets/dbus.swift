@@ -4,14 +4,7 @@
 // Swift Argument Parser
 // https://swiftpackageindex.com/apple/swift-argument-parser/documentation
 
-import ArgumentParser
 import Core
 import Clibdbus
 
-@main
-struct DBusSwift: ParsableCommand {
-    mutating func run() throws {
-        print("Hello, world!")
-        hello()
-    }
-}
+
