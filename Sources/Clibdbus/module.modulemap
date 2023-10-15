@@ -1,0 +1,5 @@
+module Clibdbus [system] {
+  header "mydbus.h"
+  link "dbus-1"
+  export *
+}
